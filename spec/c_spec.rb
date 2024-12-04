@@ -5,6 +5,7 @@ module C
   ffi_lib 'build/fib'
 
   attach_function :fib, [:long], :long
+  attach_function :greet, [:string], :string
 end
 
 RSpec.describe C do
@@ -17,6 +18,12 @@ RSpec.describe C do
       expect(C.fib(4)).to eq 3
       expect(C.fib(5)).to eq 5
       expect(C.fib(10)).to eq 55
+    end
+  end
+
+  context 'greet' do
+    it 'is polite' do
+      expect(C.greet('Ruby')).to eq 'Hello, Ruby!'
     end
   end
 end

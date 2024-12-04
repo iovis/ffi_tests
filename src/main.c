@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 #include "fib.h"
+#include "greeter.h"
 
 int main(int argc, char *argv[]) {
   if (argc != 2) {
@@ -27,4 +28,9 @@ int main(int argc, char *argv[]) {
   }
 
   printf("fib(%ld) = %ld\n", n, fib(n));
+
+  char *greeting = greet("General Kenobi");
+  printf("Also: %s\n", greeting);
+
+  free(greeting);
 }
